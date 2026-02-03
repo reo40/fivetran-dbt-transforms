@@ -5,7 +5,7 @@ select
   try_cast(id as number(18,0))       as id,
   try_cast(name as varchar)          as name,
   try_cast(data_intr_time as number(18,0)) as data_intr_time,
-  try_cast(date_ as timestamp)       as date_,
+  try_cast(date as timestamp)       as date_,
   try_cast(signal_strength as varchar) as signal_strength,
   try_cast(power_voltage as number)  as power_voltage,
   try_cast(temp as number)           as temp,
@@ -26,4 +26,4 @@ select
   try_cast(wbgt_str as varchar)      as wbgt_str,
   try_cast(atmos as number(18,0))    as atmos,
   try_cast(sea_level_pressure as varchar) as sea_level_pressure
-from {{ source('raw', 'YOUR_RAW_TABLE_NAME') }}
+from {{ source('raw', 'MIMAWARI') }}
