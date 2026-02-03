@@ -1,0 +1,11 @@
+name: "fivetran_transforms"
+version: "1.0.0"
+config-version: 2
+
+profile: "default"
+
+model-paths: ["models"]
+
+models:
+  fivetran_transforms:
+    +materialized: view
