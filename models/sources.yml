@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    database: REO_TEST
+    schema: SHARE_POINT
+    tables:
+      - name: MIMAWARI
