@@ -2,7 +2,11 @@ version: 2
 
 sources:
   - name: raw
-    database: REO_TEST
-    schema: SHARE_POINT
+    schema: SHARE_POINT   # ← TESTがあるスキーマ
     tables:
-      - name: MIMAWARI
+      - name: TEST
+
+  - name: manual
+    schema: SHARE_POINT   # ← CLASS_BUSHOを作ったスキーマ（同じなら同じでOK）
+    tables:
+      - name: CLASS_BUSHO
