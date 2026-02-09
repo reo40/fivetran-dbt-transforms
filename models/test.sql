@@ -5,6 +5,6 @@ SELECT
   p.CLASS,
   p.NAME,
   cb.BUSHO
-FROM {{ ref('TEST') }} p
-LEFT JOIN {{ ref('CLASS_BUSHO') }} cb
+FROM {{ source('raw', 'TEST') }} p
+LEFT JOIN {{ source('manual', 'CLASS_BUSHO') }} cb
   ON p.CLASS = cb.CLASS
