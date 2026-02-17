@@ -31,7 +31,7 @@ with src as (
     WBGT_STR,
     ATMOS,
     SEA_LEVEL_PRESSURE
-  from {{ source('share_point_raw', 'TMP_MIMAWARI') }}
+  from {{ source('raw', 'TMP_MIMAWARI') }}
 ),
 
 mapped as (
