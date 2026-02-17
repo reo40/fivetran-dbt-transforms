@@ -49,7 +49,7 @@ mapped as (
     /* raw: '2026/1/28  23:57:00' (spaces may vary) */
     to_timestamp_ntz(
       regexp_replace(TO_VARCHAR(DATE), '\\s+', ' '),
-      'YYYY/M/D HH24:MI:SS'
+      'YYYY/M/D HH24:MI'
     )                                                  as DATE_,
 
     SIGNAL_STRENGTH::varchar                           as SIGNAL_STRENGTH,
