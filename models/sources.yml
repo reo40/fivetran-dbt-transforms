@@ -5,10 +5,4 @@ sources:
     database: REO_TEST
     schema: SHARE_POINT   # ← TESTがあるスキーマ
     tables:
-      - name: TEST
-
-  - name: manual
-    database: REO_TEST
-    schema: SHARE_POINT   # ← CLASS_BUSHOを作ったスキーマ（同じなら同じでOK）
-    tables:
-      - name: CLASS_BUSHO
+      - name: TMP_MIMAWARI
