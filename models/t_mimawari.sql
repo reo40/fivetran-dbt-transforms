@@ -80,4 +80,3 @@ mapped as (
 select *
 from mapped
 where DATE_ is not null   -- targetが NOT NULL のため
-;
