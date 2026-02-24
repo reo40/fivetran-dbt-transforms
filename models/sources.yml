@@ -3,6 +3,6 @@ version: 2
 sources:
   - name: raw
     database: REO_TEST
-    schema: SHARE_POINT   # ← TESTがあるスキーマ
+    schema: RAW
     tables:
-      - name: TMP_MIMAWARI
+      - name: TMP_ANALOG
