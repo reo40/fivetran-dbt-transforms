@@ -1,7 +1,7 @@
 {{ config(
     materialized='incremental',
     incremental_strategy='append',
-    alias='"M_在庫_品目マスタ"'
+    alias='M_在庫_品目マスタ'
 ) }}
 
 with src as (
