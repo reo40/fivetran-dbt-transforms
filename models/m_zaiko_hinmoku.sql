@@ -1,7 +1,6 @@
 {{ config(
     materialized='incremental',
     incremental_strategy='append',
-    schema='COMMON',
     alias='M_在庫_品目マスタ'
 ) }}
 
