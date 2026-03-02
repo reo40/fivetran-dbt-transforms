@@ -1,7 +1,6 @@
 {{ config(
     materialized='incremental',
     incremental_strategy='append',
-    schema='"common"',
     alias='"M_在庫_品目マスタ"'
 ) }}
 
@@ -36,7 +35,7 @@ with src as (
     {{ optional_col(source('raw','TMP_HINMOKU'), 'SOUGENKA', 'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_HINMOKU'), 'HENDOUHI', 'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_HINMOKU'), 'KOTEIHI', 'CAST(NULL AS NUMBER(18,0))') }},
-    {{ optional_col(source('raw','TMP_HINMOKU'), '_FILE', 'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_HINMOKU'), '_FILE', 'CAST(NULL AS VARCHAR)') }}
   from {{ source('raw','TMP_HINMOKU') }}
 ),
 
@@ -79,7 +78,7 @@ mapped as (
     HENDOUHI::varchar                                         as "変動費",
 
     -- 日付変換
-    TO_DATE(REGEXP_SUBSTR(_FILE, '[0-9]{8}'), 'YYYYMMDD')     as "日付",
+    TO_DATE(REGEXP_SUBSTR(_FILE, '[0-9]{8}'), 'YYYYMMDD')     as "日付"
   from src
 )
 
