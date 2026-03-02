@@ -9,9 +9,3 @@ model-paths: ["models"]
 models:
   fivetran_transforms:
     +materialized: view
-
-quoting:
-  database: false
-  schema: false
-  identifier: true
-  column: true
