@@ -1,6 +1,8 @@
 {{ config(
     materialized='incremental',
     incremental_strategy='append',
+    schema='"common"',
+    alias='"M_在庫_品目マスタ"'
 ) }}
 
 with src as (
