@@ -27,11 +27,8 @@ mapped as (
     TRY_TO_NUMERIC(TO_VARCHAR(VALUE), 38, 3)           as value,
     TRY_TO_NUMERIC(TO_VARCHAR(PREDICTED_VALUE), 38, 3) as predicted_value,
     CORRECTED_VALUE::varchar                           as corrected_value,
-    TO_VARCHAR(IS_CONFIRMED)                           as is_confirmed,
-    TO_VARCHAR(
-      TRY_TO_TIMESTAMP_NTZ(DATETIME),
-      'YYYY-MM-DD"T"HH24:MI:SS'
-    )                                                  as "取得時刻",
+    IS_CONFIRMED::varchar                              as is_confirmed,
+    TO_VARCHAR(DATETIME)                               as "取得時刻",
     UNIT::varchar                                      as unit
   from src
 )
