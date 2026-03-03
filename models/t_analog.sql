@@ -7,15 +7,15 @@
 
 with src as (
   select
-    {{ optional_col(source('raw','TMP_ANALOG'), 'GAUGE_ID',        'CAST(NULL AS VARCHAR)') }} as GAUGE_ID,
-    {{ optional_col(source('raw','TMP_ANALOG'), 'GAUGE_NAME',      'CAST(NULL AS VARCHAR)') }} as GAUGE_NAME,
-    {{ optional_col(source('raw','TMP_ANALOG'), 'MEASUREMENT_ID',  'CAST(NULL AS VARCHAR)') }} as MEASUREMENT_ID,
-    {{ optional_col(source('raw','TMP_ANALOG'), 'VALUE',           'CAST(NULL AS NUMBER(38,3))') }} as VALUE,
-    {{ optional_col(source('raw','TMP_ANALOG'), 'PREDICTED_VALUE', 'CAST(NULL AS NUMBER(38,3))') }} as PREDICTED_VALUE,
-    {{ optional_col(source('raw','TMP_ANALOG'), 'CORRECTED_VALUE', 'CAST(NULL AS VARCHAR)') }} as CORRECTED_VALUE,
-    {{ optional_col(source('raw','TMP_ANALOG'), 'IS_CONFIRMED',    'CAST(NULL AS VARCHAR)') }} as IS_CONFIRMED,
-    {{ optional_col(source('raw','TMP_ANALOG'), 'DATETIME',        'CAST(NULL AS VARCHAR)') }} as DATETIME,
-    {{ optional_col(source('raw','TMP_ANALOG'), 'UNIT',            'CAST(NULL AS VARCHAR)') }} as UNIT
+    {{ optional_col(source('raw','TMP_ANALOG'), 'GAUGE_ID',        'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ANALOG'), 'GAUGE_NAME',      'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ANALOG'), 'MEASUREMENT_ID',  'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ANALOG'), 'VALUE',           'CAST(NULL AS NUMBER(38,3))') }},
+    {{ optional_col(source('raw','TMP_ANALOG'), 'PREDICTED_VALUE', 'CAST(NULL AS NUMBER(38,3))') }},
+    {{ optional_col(source('raw','TMP_ANALOG'), 'CORRECTED_VALUE', 'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ANALOG'), 'IS_CONFIRMED',    'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ANALOG'), 'DATETIME',        'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ANALOG'), 'UNIT',            'CAST(NULL AS VARCHAR)') }}
   from {{ source('raw', 'TMP_ANALOG') }}
 ),
 
