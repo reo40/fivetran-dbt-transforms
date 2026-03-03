@@ -35,4 +35,4 @@ mapped as (
 
 select *
 from mapped
-where DATETIME is not null
+where "取得時刻" is not null
