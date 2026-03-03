@@ -1,5 +1,5 @@
 {{ config(
-    materialized='incremental',
+    materialized='table',
     alias='M_在庫_品目マスタ'
 ) }}
 
