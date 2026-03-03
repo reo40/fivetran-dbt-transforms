@@ -7,11 +7,11 @@
 
 with src as (
   select
-    {{ optional_col(source('raw','TMP_MIMAWARI'), 'FORMAT_VERSION',      'CAST(NULL AS NUMBER(38,3))') }} as FORMAT_VERSION,
-    {{ optional_col(source('raw','TMP_MIMAWARI'), 'ID',                  'CAST(NULL AS NUMBER(18,0))') }} as ID,
-    {{ optional_col(source('raw','TMP_MIMAWARI'), 'NAME',                'CAST(NULL AS VARCHAR)') }}      as NAME,
+    {{ optional_col(source('raw','TMP_MIMAWARI'), 'FORMAT_VERSION',       'CAST(NULL AS NUMBER(38,3))') }} as FORMAT_VERSION,
+    {{ optional_col(source('raw','TMP_MIMAWARI'), 'ID',                   'CAST(NULL AS NUMBER(18,0))') }} as ID,
+    {{ optional_col(source('raw','TMP_MIMAWARI'), 'NAME',                 'CAST(NULL AS VARCHAR)') }}      as NAME,
     {{ optional_col(source('raw','TMP_MIMAWARI'), 'DATA_INTR_TIME',       'CAST(NULL AS NUMBER(18,0))') }} as DATA_INTR_TIME,
-    {{ optional_col(source('raw','TMP_MIMAWARI'), 'DATE',                'CAST(NULL AS VARCHAR)') }}      as DATE,
+    {{ optional_col(source('raw','TMP_MIMAWARI'), 'DATE',                 'CAST(NULL AS VARCHAR)') }}      as DATE,
     {{ optional_col(source('raw','TMP_MIMAWARI'), 'SIGNAL_STRENGTH',      'CAST(NULL AS VARCHAR)') }}      as SIGNAL_STRENGTH,
     {{ optional_col(source('raw','TMP_MIMAWARI'), 'POWER_VOLTAGE',        'CAST(NULL AS NUMBER(38,3))') }} as POWER_VOLTAGE,
     {{ optional_col(source('raw','TMP_MIMAWARI'), 'TEMP',                 'CAST(NULL AS NUMBER(38,3))') }} as TEMP,
@@ -42,7 +42,7 @@ mapped as (
     TRY_TO_NUMERIC(TO_VARCHAR(ID), 18, 0)              as ID,
     NAME::varchar                                      as NAME,
     TRY_TO_NUMERIC(TO_VARCHAR(DATA_INTR_TIME), 18, 0)  as DATA_INTR_TIME,
-    TRY_TO_TIMESTAMP_TZ(
+    TRY_TO_TIMESTAMP_NTZ(
       regexp_replace(TO_VARCHAR(DATE), '\\s+', ' '),
       'YYYY/MM/DD HH24:MI:SS'
     )                                                  as DATE_,
