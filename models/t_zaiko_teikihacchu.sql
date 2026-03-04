@@ -164,7 +164,7 @@ mapped as (
     BIKOU::varchar                                                as "備考",
 
     -- 日付：ファイル名末尾のYYYYMMDDを抽出
-    TO_DATE(REGEXP_SUBSTR(_FILE, '[0-9]{8}$'), 'YYYYMMDD')        as "日付"
+    TO_DATE(REGEXP_SUBSTR(_FILE, '[0-9]{8}'), 'YYYYMMDD')        as "日付"
   from src
 )
 
