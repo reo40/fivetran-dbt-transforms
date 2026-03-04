@@ -7,4 +7,4 @@ sources:
     tables:
       - name: TMP_ANALOG
       - name: TMP_MIMAWARI
-      - name: TMP_HINMOKU
+      - name: TMP_ZAIKO_HINMOKU
