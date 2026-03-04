@@ -7,7 +7,7 @@ with src as (
   select
     {{ optional_col(source('raw','TMP_ZAIKO_HINMOKU'), 'HINMOKU',               'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_HINMOKU'), 'FC_HINBAN',             'CAST(NULL AS VARCHAR)') }},
-    {{ optional_col(source('raw','TMP_ZAIKO_HINMOKU'), 'KANJI_SHINAMEI',        'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ZAIKO_HINMOKU'), 'KANJI_HINMEI',          'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_HINMOKU'), 'HINMOKU_TEXT',          'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_HINMOKU'), 'HINMOKU_TYPE',          'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_HINMOKU'), 'UNITE_KUBUN',           'CAST(NULL AS VARCHAR)') }},
@@ -35,7 +35,7 @@ mapped as (
   select
     HINMOKU::varchar                                         as "品目",
     FC_HINBAN::varchar                                       as "FC品番",
-    KANJI_SHINAMEI::varchar                                  as "漢字　品名　表示用1",
+    KANJI_HINMEI::varchar                                    as "漢字　品名　表示用1",
     HINMOKU_TEXT::varchar                                    as "品目テキスト",
     HINMOKU_TYPE::varchar                                    as "品目タイプ",
     UNITE_KUBUN::varchar                                     as "UNITE用事業区分",
