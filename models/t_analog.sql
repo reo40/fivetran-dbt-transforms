@@ -17,8 +17,7 @@ with src as (
     {{ optional_col(source('raw','TMP_ANALOG'), 'DATETIME',        'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ANALOG'), 'UNIT',            'CAST(NULL AS VARCHAR)') }}
   from {{ source('raw', 'TMP_ANALOG') }}
-  where
-      GAUGE_ID is not null and MEASUREMENT_ID is not null
+  where GAUGE_ID is not null and MEASUREMENT_ID is not null
 ),
 
 mapped as (
