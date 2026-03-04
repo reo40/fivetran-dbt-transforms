@@ -9,3 +9,4 @@ sources:
       - name: TMP_MIMAWARI
       - name: TMP_ZAIKO_HINMOKU
       - name: TMP_ZAIKO_MES
+      - name: TMP_ZAIKO_TEIKIHACCHU
