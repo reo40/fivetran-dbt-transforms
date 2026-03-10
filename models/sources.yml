@@ -10,3 +10,4 @@ sources:
       - name: TMP_ZAIKO_HINMOKU
       - name: TMP_ZAIKO_MES
       - name: TMP_ZAIKO_TEIKIHACCHU
+      - name: TMP_ZAIKO_JUKYU
