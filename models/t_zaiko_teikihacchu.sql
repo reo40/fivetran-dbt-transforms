@@ -5,8 +5,8 @@
 
 with src as (
   select
-    {{ optional_col(source('raw','TMP_ZAIKO_TEIKIHACCHU'), 'F001', 'CAST(NULL AS NUMBER(18,0))') }},
-    {{ optional_col(source('raw','TMP_ZAIKO_TEIKIHACCHU'), 'F002', 'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ZAIKO_TEIKIHACCHU'), 'F_001', 'CAST(NULL AS NUMBER(18,0))') }},
+    {{ optional_col(source('raw','TMP_ZAIKO_TEIKIHACCHU'), 'F_002', 'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_TEIKIHACCHU'), 'JIGYOUJOU', 'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_TEIKIHACCHU'), 'GENRYOU_CODE', 'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_TEIKIHACCHU'), 'SHANAIYOU_MEISHOU', 'CAST(NULL AS VARCHAR)') }},
@@ -80,8 +80,8 @@ with src as (
 
 mapped as (
   select
-    TRY_TO_DECIMAL(TO_VARCHAR(F001), 18, 0)                       as "F001",
-    F002::varchar                                                 as "F002",
+    TRY_TO_DECIMAL(TO_VARCHAR(F_001), 18, 0)                       as "F001",
+    F_002::varchar                                                 as "F002",
     JIGYOUJOU::varchar                                            as "事業場",
     GENRYOU_CODE::varchar                                         as "原料コード",
     SHANAIYOU_MEISHOU::varchar                                    as "社内用名称",
