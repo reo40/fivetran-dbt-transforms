@@ -6,7 +6,7 @@
 with src as (
   select
     {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'NO', 'CAST(NULL AS VARCHAR)') }},
-    {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'SEQ1', 'CAST(NULL AS NUMBER(18,0))') }},
+    {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'SEQ_1', 'CAST(NULL AS NUMBER(18,0))') }},
     {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'SEQ', 'CAST(NULL AS NUMBER(18,0))') }},
     {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'SEIZOU_CENTER', 'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'SEIZOU_CENTER_CODE', 'CAST(NULL AS VARCHAR)') }},
@@ -161,8 +161,8 @@ with src as (
     {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'TOUGETSU_PLUS_11_ZAIKORITSU', 'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'TOUGETSU_PLUS_11_SHIKAKARI', 'CAST(NULL AS VARCHAR)') }},
 
-    {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'HINBAN2', 'CAST(NULL AS VARCHAR)') }},
-    {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'HINMEI2', 'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'HINBAN_2', 'CAST(NULL AS VARCHAR)') }},
+    {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), 'HINMEI_2', 'CAST(NULL AS VARCHAR)') }},
     {{ optional_col(source('raw','TMP_ZAIKO_JUKYU'), '_FILE', 'CAST(NULL AS VARCHAR)') }}
   from {{ source('raw','TMP_ZAIKO_JUKYU') }}
 ),
@@ -170,7 +170,7 @@ with src as (
 mapped as (
   select
     NO::varchar                                                  as "NO",
-    TRY_TO_DECIMAL(TO_VARCHAR(SEQ1), 18, 0)                      as "SEQ1",
+    TRY_TO_DECIMAL(TO_VARCHAR(SEQ_1), 18, 0)                      as "SEQ1",
     TRY_TO_DECIMAL(TO_VARCHAR(SEQ), 18, 0)                       as "SEQ",
     SEIZOU_CENTER::varchar                                       as "製造センター",
     SEIZOU_CENTER_CODE::varchar                                  as "製造センターコード",
@@ -327,8 +327,8 @@ mapped as (
     TOUGETSU_PLUS_11_ZAIKORITSU::varchar                         as "当月+11月度計画在庫率",
     TOUGETSU_PLUS_11_SHIKAKARI::varchar                          as "当月+11月度計画仕掛#数",
 
-    HINBAN2::varchar                                             as "品番2",
-    HINMEI2::varchar                                             as "品名2",
+    HINBAN_2::varchar                                             as "品番2",
+    HINMEI_2::varchar                                             as "品名2",
 
     -- 日付：ファイル名内の連続8桁を抽出
     TO_DATE(REGEXP_SUBSTR(_FILE, '[0-9]{8}'), 'YYYYMMDD')        as "日付"
