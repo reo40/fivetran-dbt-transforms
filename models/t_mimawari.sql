@@ -34,7 +34,6 @@ with src as (
     {{ optional_col(source('raw','TMP_MIMAWARI'), 'SEA_LEVEL_PRESSURE',   'CAST(NULL AS VARCHAR)') }}
 
   from {{ source('raw', 'TMP_MIMAWARI') }}
-  where DATE_ is not null
 ),
 
 mapped as (
@@ -73,3 +72,4 @@ mapped as (
 
 select *
 from mapped
+where DATE_ is not null
