@@ -53,7 +53,7 @@ mapped as (
     HAN_NUM::varchar                                        as "版番号",
     HINSHITSU_STATE::varchar                                as "品質状態",
     KAIFU_STATE::varchar                                    as "開封状態",
-    YUKOUKIGEN                                              as "有効期限",
+    TRY_TO_DATE(YUKOUKIGEN)                                 as "有効期限",
     LOCK_STATE::varchar                                     as "ロック状態",
     LOCK_JISSHISHA::varchar                                 as "ロック実施者",
     LOCK_DATE::varchar                                      as "ロック実施日時",
