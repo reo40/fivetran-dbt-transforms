@@ -42,7 +42,7 @@ mapped as (
     TRY_TO_NUMERIC(TO_VARCHAR(ID), 18, 0)              as ID,
     NAME::varchar                                      as NAME,
     TRY_TO_NUMERIC(TO_VARCHAR(DATA_INTR_TIME), 18, 0)  as DATA_INTR_TIME,
-    TRY_TO_TIMESTAMP_NTZ(
+    TRY_TO_TIMESTAMP(
       regexp_replace(TO_VARCHAR(DATE), '\\s+', ' '),
       'YYYY/MM/DD HH24:MI:SS'
     )                                                  as DATE_,
