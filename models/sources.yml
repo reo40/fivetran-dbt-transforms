@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: raw
-    database: SEISAN_DB
+    database: REO_TEST
     schema: RAW
     tables:
       - name: TMP_ANALOG
